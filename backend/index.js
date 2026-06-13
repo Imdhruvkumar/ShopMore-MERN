@@ -13,6 +13,10 @@ app.get("/", (req,res)=>{
     res.send("shopmore backend working properly")
 });
 app.use('/api/auth', require('./routes/authRoutes.js'));
+app.use('/api/product',require('./routes/productRoutes.js'));
+// app.use('/api/order',require('./routes/orderRoutes.js'));
+// app.use('/api/payment',require('./routes/paymentRoutes.js'));
+// app.use('/api/analytics',require('./routes/analyticsRoutes.js'));
 
 const PORT = process.env.PORT || 5000;
  app.listen(PORT,()=>{
