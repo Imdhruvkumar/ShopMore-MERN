@@ -25,9 +25,10 @@ const getProductById = async(req,res)=>{
 
 const createProduct = async(req,res)=>{
 try {
-        const {name,description,price,category, stock} = req.body;
+        const {name,description,price,category,stock} = req.body;
         let imageUrl = '';
         if (req.file) {
+          
             const result = await cloudinary.uploader.upload(req.file.path);
             imageUrl = result.secure_url;
         }
@@ -43,8 +44,11 @@ try {
         const savedProduct = await product.save();
         res.status(200).json(savedProduct);
 
-} catch (error) {
-    res.status(500).json({message:"server error"});
+}  catch (error) {
+    console.error("REGISTER ERROR:", error);
+    return res.status(500).json({
+        message:error.message
+    });
 }
     
 };
@@ -76,7 +80,7 @@ const deleteProduct= async(req,res)=>{
 try {
         const product = await Product.findById(req.params.id);
         if(product){
-            product.remove();
+            await product.deleteOne();
             res.json({message:'product removed '});
         }
         else{
