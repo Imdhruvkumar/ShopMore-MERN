@@ -14,7 +14,7 @@ app.get("/", (req,res)=>{
 });
 app.use('/api/auth', require('./routes/authRoutes.js'));
 app.use('/api/product',require('./routes/productRoutes.js'));
-// app.use('/api/order',require('./routes/orderRoutes.js'));
+app.use('/api/order',require('./routes/orderRouetr.js'));
 // app.use('/api/payment',require('./routes/paymentRoutes.js'));
 // app.use('/api/analytics',require('./routes/analyticsRoutes.js'));
 
