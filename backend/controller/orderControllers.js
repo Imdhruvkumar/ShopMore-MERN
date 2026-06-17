@@ -4,7 +4,10 @@ const sendEmail = require('../utils/sendEmail');
 const createOrder = async(req,res)=>{
     
     try {
-        const {items,totalAmount,address,paymentId}= req.body;
+      
+        const {items,totalAmount,address,payment}= req.body;
+        
+     
         if (!items || items.length===0 || !address) {
             return res.status(400).json({message:'Invalid order data'});
         }
@@ -14,7 +17,7 @@ const createOrder = async(req,res)=>{
                 items,
                 totalAmount,
                 address,
-                paymentId
+                payment
             });
             await order.save();
             await sendEmail(req.user.email,'order created','your order has been created successfully');
@@ -23,8 +26,13 @@ const createOrder = async(req,res)=>{
         }
 
     } catch (error) {
-        res.status(500).json({message:"error creating order",order});
-    }
+    console.error(error);
+
+    res.status(500).json({
+        message: "error creating order",
+        error: error.message
+    });
+}
 };
 
 const myOrders = async(req,res)=>{
@@ -39,7 +47,7 @@ const myOrders = async(req,res)=>{
 
 const getOrder= async(req,res)=>{
     try {
-        const orders = await Order.find({}).populate('userId','id name');
+        const orders = await Order.find({}).populate('user','id name');
         res.json(orders);
 
     } catch (error) {
