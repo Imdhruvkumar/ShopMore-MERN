@@ -1,0 +1,31 @@
+{
+  "name": "shopmore",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "install": "cd backend && npm install",
+    "dev:server": "cd backend && npm run dev",
+    "dev:client": "cd frontend && npm start",
+    "dev":"concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "build": "cd frontend && npm run build"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Imdhruvkumar/ShopMore-MERN.git"
+  },
+  "keywords": [
+    "dhurv",
+    "bfullstack"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Imdhruvkumar/ShopMore-MERN/issues"
+  },
+  "homepage": "https://github.com/Imdhruvkumar/ShopMore-MERN#readme",
+  "description": "",
+  "dependencies": {
+    "concurrently": "^10.0.3"
+  }
+}
