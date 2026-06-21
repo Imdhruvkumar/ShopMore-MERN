@@ -3,17 +3,35 @@ import { Link } from "react-router-dom";
 
 const Footer=()=>{
     return(
-    <footer className="footer">
-        <div className="footer-content">
-         <p>&copy; 2026 Shopmore. All rights reserved.</p> 
-           <ul className="footer-links">
-            <li><Link to="/about">About Us</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
-            <li><Link to="/privacy">Privacy Policy</Link></li>
+      <footer style={{
+        background: "#090909",
+        borderTop: "1px solid #333",
+        marginTop: "20px",
+        padding: "20px 0"
+      }}>
+        <div style={{ 
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            color: "#fff",
+            fontSize: "14px"
             
-           </ul>
-        </div>
-    </footer>
+            }}>
+            <div>
+                <h3 style={{color:'#f97316', marginBottom:'10px'}}>Shopmore </h3>
+                <p style={{color:'#alalaa', fontSize:'12px'}}> premium E-commers platform</p>
+            </div>
+            <div style={{display:'flex', gap:'20px'}}>
+                <Link to="/about" style={{color:'#fff', textDecoration:'none'}}>About Us</Link>
+                <Link to="/contact" style={{color:'#fff', textDecoration:'none'}}>Contact</Link>
+                <Link to="/privacy" style={{color:'#fff', textDecoration:'none'}}>Privacy Policy</Link>
+            </div>
+            <div style={{color:'#fff', fontSize:'12px'}}>
+                &copy; {new Date().getFullYear()} Shopmore. All rights reserved.
+            </div>
+
+        </div>        
+      </footer>
     );
     
 }
