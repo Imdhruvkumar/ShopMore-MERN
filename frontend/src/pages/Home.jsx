@@ -7,9 +7,11 @@ const [loading, setLoading] = useState(true);
     useEffect(() => {
     const fetchProducts = async () => {
         try {
-            const response = await fetch("/api/products");
+            const response = await fetch("http://localhost:5000/api/product");
+
             const data = await response.json();
-            setProducts(data.slice(0, 6)); // Show only first 6 products
+            
+            setProducts(data.slice(0, 4)); // Show only first 6 products
         } catch (error) {
             console.error("Error fetching products:", error);
         } finally {

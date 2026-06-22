@@ -4,10 +4,10 @@ import "../styles/navbar.css";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { useSelecter } from "react-redux";
+import { useSelector } from "react-redux";
 const Navbar= ()=>{
-    const [user, logout ] = useContext(AuthContext);
-    const cartItems = useSelecter((state) => state.cart.cartItems);
+    const { user, logout } = useContext(AuthContext);
+    const cartItems = useSelector((state) => state.cart.cartItems);
     const navigate = useNavigate();
 
     const handleLogout = () => {
