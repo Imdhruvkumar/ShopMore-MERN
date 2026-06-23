@@ -18,9 +18,9 @@ const Navbar= ()=>{
     return(
         <nav className="navbar">
             <div className="navbar-brand">
-                <Link to="/">
-                <img src="logo.png" alt="Shopmore Logo" className="navbar-logo" style={{height: '36px', width:'36px'}} />
-                Shopmore
+                <Link to="/" className="navbar-logo-link">
+                <img src="logo.png" alt="ShopMore Logo" className="navbar-logo" style={{height: '36px', width:'36px'}} />
+                ShopMore.
                 </Link>
             </div>
             <ul className="navbar-links">

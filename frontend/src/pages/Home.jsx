@@ -1,6 +1,8 @@
 import React ,{useEffect,useState} from "react";
 import { Link } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
+import "../styles/home.css";
+import "../styles/product.css";
 const Home = ()=>{
 const [products, setProducts] = useState([]);
 const [loading, setLoading] = useState(true);
@@ -11,7 +13,7 @@ const [loading, setLoading] = useState(true);
 
             const data = await response.json();
             
-            setProducts(data.slice(0, 4)); // Show only first 6 products
+            setProducts(data.slice(0, 5)); // Show only first 6 products
         } catch (error) {
             console.error("Error fetching products:", error);
         } finally {
@@ -24,8 +26,8 @@ const [loading, setLoading] = useState(true);
      return(
         <div className="home-container">
           <div className="hero-banner" >
-            <h1>Welcome to Shopmore</h1>
-            <p>Your one-stop shop for all your needs</p>
+            <h1>Welcome to ShopMore</h1>
+            <p>Discover the best products at unbeatable prices.</p>
             </div>
             <h2>Featured Products</h2>
             {loading ? (

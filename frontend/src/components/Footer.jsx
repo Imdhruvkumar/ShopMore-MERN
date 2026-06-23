@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Footer=()=>{
     return(
       <footer style={{
-        background: "#090909",
+        background: "linear-gradient(to right, rgb(169, 91, 18),black)",
         borderTop: "1px solid #333",
         marginTop: "20px",
         padding: "20px 0"
@@ -18,8 +18,8 @@ const Footer=()=>{
             
             }}>
             <div>
-                <h3 style={{color:'#f97316', marginBottom:'10px'}}>Shopmore </h3>
-                <p style={{color:'#alalaa', fontSize:'12px'}}> premium E-commers platform</p>
+                <h1 style={{color:'black', marginBottom:'10px',marginLeft:'10px'}}>Shopmore </h1>
+                <p style={{color:'#alalaa', fontSize:'12px',marginLeft:'10px'}}> premium E-commers platform</p>
             </div>
             <div style={{display:'flex', gap:'20px'}}>
                 <Link to="/about" style={{color:'#fff', textDecoration:'none'}}>About Us</Link>

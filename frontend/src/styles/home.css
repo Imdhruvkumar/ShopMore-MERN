@@ -1,0 +1,17 @@
+.home-container {
+ 
+  
+  background-color: black;
+}
+.hero-banner{
+    
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #fff;
+    text-align: center;
+      padding-top: 20px;
+      padding-bottom: 30px;
+       background: linear-gradient(to right, black , rgb(169, 91, 18));
+       
+}
