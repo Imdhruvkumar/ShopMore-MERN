@@ -18,7 +18,7 @@ const Footer=()=>{
             
             }}>
             <div>
-                <h1 style={{color:'black', marginBottom:'10px',marginLeft:'10px'}}>Shopmore </h1>
+                <h1 style={{color:'black', marginBottom:'10px',marginLeft:'10px'}}>Shopmore. </h1>
                 <p style={{color:'#alalaa', fontSize:'12px',marginLeft:'10px'}}> premium E-commers platform</p>
             </div>
             <div style={{display:'flex', gap:'20px'}}>
