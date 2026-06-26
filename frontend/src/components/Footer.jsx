@@ -23,8 +23,8 @@ const Footer=()=>{
             </div>
             <div style={{display:'flex', gap:'20px'}}>
                 <Link to="/about" style={{color:'#fff', textDecoration:'none'}}>About Us</Link>
-                <Link to="/contact" style={{color:'#fff', textDecoration:'none'}}>Contact</Link>
-                <Link to="/privacy" style={{color:'#fff', textDecoration:'none'}}>Privacy Policy</Link>
+                <Link to="/disclaimer" style={{color:'#fff', textDecoration:'none'}}>Disclaimer</Link>
+                <Link to="/return-policy" style={{color:'#fff', textDecoration:'none'}}>Return Policy</Link>
             </div>
             <div style={{color:'#fff', fontSize:'12px'}}>
                 &copy; {new Date().getFullYear()} Shopmore. All rights reserved.

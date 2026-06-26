@@ -6,7 +6,7 @@ const About = () => {
     padding: '40px',
     maxWidth: '900px',
     textAlign: 'center',
-    backgroundColor: '#f9f9f9',
+     background: "linear-gradient(to right, rgb(169, 91, 18),black)",
     borderRadius: '50%',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
     border: '1px solid #e0e0e0',
