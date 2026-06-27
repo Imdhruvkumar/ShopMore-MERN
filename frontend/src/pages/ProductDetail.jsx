@@ -1,10 +1,10 @@
-import React,{useState,useContext} from "react";
-import { useNavigate } from "react-router-dom";
+import React,{useState,useContext,useEffect} from "react";
+import { useNavigate,Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import {addToCart} from "../redux/cartSlice";
 
-    ``
-
+import { useParams } from "react-router-dom";
+import {useDispatch} from "react-redux";
 const ProductDetail = () => {
     const [product,setProduct] = useState(null);
     const {id} = useParams();
@@ -16,7 +16,7 @@ const ProductDetail = () => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const res = await fetch(`/api/products/${id}`);
+               const res = await fetch(`/api/product/${id}`);
                 const data = await res.json();
                 setProduct(data);
                
@@ -33,7 +33,7 @@ const ProductDetail = () => {
 
     const handleAddToCart = () => {
         if (product) {
-            dispatch(addtoCart(product));
+            dispatch(addToCart(product));
         }
     };
 
@@ -46,20 +46,20 @@ const ProductDetail = () => {
     }
 
     return (
-        <div className="product-detail" style={{maxWidth: '800px', margin: '0 auto', padding: '20px'}}>
+        <div className="product-detail" style={{ maxWidth: '800px', margin: '0 auto', padding: '20px' }}>
 
-            <div className="product-image" style={{color: '#333', marginBottom: '20px',fontSize: '18px'}}>
+            <div className="product-image" style={{color: '#333', marginBottom: '20px',fontSize: '18px',height:'20px'}}>
                 <Link to="/" style={{color:"orange"}}>Home</Link> / <Link to="/shop" style={{color:"orange"}}>Shop</Link> / <span style={{color:"orange"}}>{product.name}</span>
             </div>
 
             <div className="product-detail">
                 <div className="detail-img-container">
-                    <img src={product.imageUrl} alt={product.name} className="detail-image" />
+                    <img src={product.imageUrl} alt={product.name} className="detail-image" style={{ maxWidth: '50%', height: 'auto' }} />
                 </div>
             </div>
 
             <div className="detail-info ">
-                <h2 style={{ fontSize: '24px', marginBottom: '10px' }}>{product.name}</h2>
+                <h2 style={{ fontSize: '24px', marginBottom: '10px',maxWidth: '50%' }}>{product.name}</h2>
                <p style={{ fontSize: '20px', color: '#555', marginBottom: '10px' }}>Price: ${product.price.toFixed(2)}</p>
 
                {/* description */}
