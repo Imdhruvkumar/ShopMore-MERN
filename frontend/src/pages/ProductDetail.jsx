@@ -52,9 +52,9 @@ const ProductDetail = () => {
                 <Link to="/" style={{color:"orange"}}>Home</Link> / <Link to="/shop" style={{color:"orange"}}>Shop</Link> / <span style={{color:"orange"}}>{product.name}</span>
             </div>
 
-            <div className="product-detail">
+            <div className="product-detail" >
                 <div className="detail-img-container">
-                    <img src={product.imageUrl} alt={product.name} className="detail-image" style={{ maxWidth: '50%', height: 'auto' }} />
+                    <img src={product.imageUrl} alt={product.name} className="detail-image" style={{ maxWidth: '50%', height: 'auto'}} />
                 </div>
             </div>
 
