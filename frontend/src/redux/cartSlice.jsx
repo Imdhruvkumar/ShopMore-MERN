@@ -9,19 +9,29 @@ const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
-        addToCart: (state, action) => {
-            const item = action.payload;
-            const existItem = state.cartItems.find((x) => x.id === item.id);
-            if (existItem) {
-                state.cartItems = state.cartItems.map((x) => x.id === item.id ? { ...x, quantity: x.quantity + 1 } : x);
-            } else {
-                state.cartItems = [ ...state.cartItems, { ...item, quantity: 1 } ];
-            }
-            localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
-        },
+    addToCart: (state, action) => {
+        const item = action.payload;
+
+        const existItem = state.cartItems.find((x) => x._id === item._id);
+
+        if (existItem) {
+        state.cartItems = state.cartItems.map((x) =>
+            x._id === item._id
+                ? { ...x, qty: item.qty }
+                : x
+        );
+        } else {
+        state.cartItems.push({
+            ...item,
+            qty: item.qty || 1,
+        });
+    }
+
+    localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+},
         removeFromCart: (state, action) => {
             const itemId = action.payload;
-            state.cartItems = state.cartItems.filter((x) => x.id !== itemId);
+            state.cartItems = state.cartItems.filter((x) => x._id !== itemId);
             localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
         },
         clearCart: (state) => {

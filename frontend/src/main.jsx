@@ -5,6 +5,11 @@ import { AuthProvider } from './context/AuthContext.jsx'
 import './styles/global.css'
 import { Provider } from 'react-redux';
 import store from './redux/store.jsx';
+
+
+localStorage.removeItem("cartItems");
+
+
 createRoot(document.getElementById('root')).render(
     <StrictMode>
     <Provider store={store}>

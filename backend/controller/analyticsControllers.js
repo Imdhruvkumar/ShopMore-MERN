@@ -3,22 +3,27 @@ const User = require("../model/userModel");
 const Product = require("../model/productModel");
 const getAdminStats = async(req,res)=>{
     try {
-        const totalUser = await User.countDocuments({role:'user'});
-        const totalOders = await Order.countDocuments({});
+        const totalUsers = await User.countDocuments({role:'user'});
+        const totalOrders = await Order.countDocuments({});
         const totalProducts = await Product.countDocuments({});
 
         const orders = await Order.find({});
         const totalRevenueData = orders.reduce((acc,order) => acc+order.totalAmount,0);
 
         res.json({
-            totalOders,
+            totalOrders,
             totalProducts,
-            totalUser,
+            totalUsers,
             totalRevenue:totalRevenueData
         });
     } catch (error) {
-        res.status(501).json({message:"error fetching status",error});
-    }
+    console.log(error);
+
+    res.status(500).json({
+        message: "Error fetching stats",
+        error: error.message
+    });
+}
 };
 
 module.exports ={getAdminStats} ;

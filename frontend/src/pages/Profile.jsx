@@ -15,7 +15,7 @@ const Profile = () => {
     }
     const fetchMyOrders = async () => {
       try {
-        const res = await fetch('/api/orders/myorders', {
+        const res = await fetch('/api/orders/myorder', {
           headers: { Authorization: `Bearer ${user.token}` }
         });
         const data = await res.json();
@@ -47,6 +47,7 @@ const Profile = () => {
   const badgeStyle = { background: 'rgba(249,115,22,0.1)', color: '#f97316', padding: '6px 12px', borderRadius: '8px', fontSize: '0.9rem', fontWeight: 'bold', display: 'inline-block' };
 
   if (!user) return null;
+  console.log(user);
 
   return (
     <div style={containerStyle}>
@@ -57,6 +58,7 @@ const Profile = () => {
           <p style={{ color: '#a1a1aa', fontSize: '1.2rem', marginBottom: '15px' }}><strong>Email:</strong> {user.email}</p>
           <span style={badgeStyle}>Account Type: {user.role.toUpperCase()}</span>
         </div>
+      
         <button onClick={handleLogout} className="btn" style={{ background: '#ef4444', boxShadow: 'none' }}>Logout</button>
       </div>
 
