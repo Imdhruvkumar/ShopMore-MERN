@@ -11,6 +11,7 @@ const AdminDashboard = () => {
     if (!user || user.role !== 'admin') {
       navigate('/');
       return;
+      
     }
 
     const fetchStats = async () => {
