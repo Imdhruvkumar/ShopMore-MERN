@@ -17,11 +17,17 @@ const AdminOrders = () => {
   }, [user]);
 
   const updateStatus = async (id, status) => {
-    const res = await fetch(`/api/orders/${id}/status`, {
+    const res = await fetch(`/api/order/${id}/status`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${user.token}` },
       body: JSON.stringify({ status })
+
+
     });
+    const data = await res.json();
+
+console.log("Status:", res.status);
+console.log("Response:", data);
     if (res.ok) {
       setOrders(orders.map(order => order._id === id ? { ...order, status } : order));
     }
@@ -54,9 +60,9 @@ const AdminOrders = () => {
                     onChange={(e) => updateStatus(order._id, e.target.value)}
                     style={{ background: '#09090b', color: '#fff', padding: '6px', border: '1px solid #27272a', borderRadius: '4px', outline: 'none' }}
                   >
-                    <option value="Pending">Pending</option>
-                    <option value="Shipped">Shipped</option>
-                    <option value="Delivered">Delivered</option>
+                    <option value="pending">Pending</option>
+                    <option value="shipped">Shipped</option>
+                    <option value="delivered">Delivered</option>
                   </select>
                 </td>
               </tr>
