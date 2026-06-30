@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "install-all": "npm install && cd backend && npm install && cd../frontend && npm install",
+    "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install",
     "start":"cd backend && npm start",
     "dev:frontend": "npm --prefix frontend run dev",
     "dev:backend": "npm --prefix backend run dev",
