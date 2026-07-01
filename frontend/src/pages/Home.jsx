@@ -14,7 +14,7 @@ const [loading, setLoading] = useState(true);
 
             const data = await response.json();
             
-            setProducts(data.slice(1, 5)); // Show only first 6 products
+            setProducts(data.slice(0, 5)); // Show only first 6 products
         } catch (error) {
             console.error("Error fetching products:", error);
         } finally {
